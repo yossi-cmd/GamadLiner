@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'gamad-liner-state';
-
   const PUZZLES = [
     { id: 1, letters: 'יו', title: 'שלב 1', question: 'לפעמים אומרים אותי בהתלהבות, כשמכפילים אותי מקבלים משחק ילדות. מי אני? (שתי אותיות)' },
     { id: 2, letters: 'סי', title: 'שלב 2', question: 'אם אומרים אותי במקומות מסויימים, זה יחשב כהסכמה. אך אם אומרים אותי על המגרש, זה אצל רונאלדו אחרי בעיטה. מי אני? (שתי אותיות)' },
@@ -29,7 +27,6 @@
   const btnCheck = $('#btn-check');
   const feedbackMsg = $('#feedback-msg');
   const collectedLettersEl = $('#collected-letters');
-  const finalNameEl = $('#final-name');
   const flyingContainer = $('#flying-letters-container');
   const inputArea = $('#input-area');
   const btnNext = $('#btn-next');
@@ -37,30 +34,6 @@
   function normalizeAnswer(str) {
     if (typeof str !== 'string') return '';
     return str.replace(/\s/g, '').trim().toLowerCase();
-  }
-
-  function loadState() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        state.answeredSteps = Array.isArray(parsed.answeredSteps) ? parsed.answeredSteps : [];
-        state.collectedByStage = typeof parsed.collectedByStage === 'object' ? parsed.collectedByStage : {};
-        state.currentStage = Math.min(Math.max(1, parseInt(parsed.currentStage, 10) || 1), 4);
-      }
-    } catch (_) {
-      state = { currentStage: 1, answeredSteps: [], collectedByStage: {} };
-    }
-  }
-
-  function saveState() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        currentStage: state.currentStage,
-        answeredSteps: state.answeredSteps,
-        collectedByStage: state.collectedByStage,
-      }));
-    } catch (_) {}
   }
 
   function getCollectedLettersOrdered() {
@@ -106,7 +79,6 @@
 
     renderStageButtons();
     renderProgress();
-    saveState();
   }
 
   function renderCollectedLetters(justAddedStageId = null) {
@@ -156,7 +128,6 @@
     renderCollectedLetters(stageId);
     renderProgress();
     renderStageButtons();
-    saveState();
 
     feedbackMsg.textContent = 'כל הכבוד! האותיות נוספו.';
     feedbackMsg.className = 'feedback-msg success';
@@ -201,8 +172,6 @@
   function showCompletion() {
     mainScreen.classList.remove('active');
     completionScreen.classList.add('active');
-    finalNameEl.textContent = 'יוסי ביטון';
-    saveState();
   }
 
   function showMainFromWelcome() {
@@ -214,7 +183,6 @@
 
   function restart() {
     state = { currentStage: 1, answeredSteps: [], collectedByStage: {} };
-    try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
     completionScreen.classList.remove('active');
     mainScreen.classList.add('active');
     showPuzzle(1);
@@ -247,16 +215,8 @@
   $('#btn-restart').addEventListener('click', restart);
   $('#btn-continue').addEventListener('click', continueAfterCompletion);
 
-  // Init
-  loadState();
+  // Init – טעינה תמיד מחדש, ללא מטמון
   renderCollectedLetters();
   renderProgress();
   renderStageButtons();
-
-  if (state.answeredSteps.length === 4) {
-    welcomeScreen.classList.remove('active');
-    mainScreen.classList.remove('active');
-    completionScreen.classList.add('active');
-    finalNameEl.textContent = 'כל הכבוד!';
-  }
 })();
