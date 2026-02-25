@@ -201,7 +201,7 @@
   function showCompletion() {
     mainScreen.classList.remove('active');
     completionScreen.classList.add('active');
-    finalNameEl.textContent = 'כל הכבוד!';
+    finalNameEl.textContent = 'יוסי ביטון';
     saveState();
   }
 
@@ -257,6 +257,6 @@
     welcomeScreen.classList.remove('active');
     mainScreen.classList.remove('active');
     completionScreen.classList.add('active');
-    finalNameEl.textContent = 'יוסי ביטון';
+    finalNameEl.textContent = 'כל הכבוד!';
   }
 })();
