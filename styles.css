@@ -1,3 +1,61 @@
+/* ===== פונט Ploni מתיקיית Fonts ===== */
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-ultralight-aaa.woff2") format("woff2"), url("Fonts/ploni-ultralight-aaa.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-light-aaa.woff2") format("woff2"), url("Fonts/ploni-light-aaa.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-regular-aaa.woff2") format("woff2"), url("Fonts/ploni-regular-aaa.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-medium-aaa.woff2") format("woff2"), url("Fonts/ploni-medium-aaa.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-demibold-aaa.woff2") format("woff2"), url("Fonts/ploni-demibold-aaa.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-bold-aaa.woff2") format("woff2"), url("Fonts/ploni-bold-aaa.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-black-aaa.woff2") format("woff2"), url("Fonts/ploni-black-aaa.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ploni";
+  src: url("Fonts/ploni-ultrabold-aaa.woff2") format("woff2"), url("Fonts/ploni-ultrabold-aaa.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== משתנים וכלל בסיס – פלטה מבוססת #091014 + #B7FB08 ===== */
 :root {
   --bg: #091014;
@@ -17,7 +75,7 @@
   --skipped: #7a8540;
   --radius: 12px;
   --radius-sm: 8px;
-  --font: "Heebo", sans-serif;
+  --font: "Ploni", "Heebo", sans-serif;
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   --transition: 0.25s ease;
 }
