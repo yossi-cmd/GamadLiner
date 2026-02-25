@@ -201,7 +201,7 @@
   function showCompletion() {
     mainScreen.classList.remove('active');
     completionScreen.classList.add('active');
-    finalNameEl.textContent = 'יוסי ביטון';
+    finalNameEl.textContent = 'כל הכבוד!';
     saveState();
   }
 
