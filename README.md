@@ -28,3 +28,25 @@
 | 2   | סי         |
 | 3   | בי         |
 | 4   | טון        |
+
+## GitHub ו־Vercel
+
+### דחיפה ל־GitHub
+
+1. צור ריפו חדש ב־GitHub: [github.com/new](https://github.com/new) (ללא README, ללא .gitignore).
+2. חבר את הריפו המקומי והדחוף:
+
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/GamadLiner.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+   החלף `YOUR_USERNAME` בשם המשתמש שלך ב־GitHub (או את כתובת הריפו המלאה).
+
+### פריסה ב־Vercel
+
+1. היכנס ל־[vercel.com](https://vercel.com) וחבר את חשבון ה־GitHub.
+2. **Add New** → **Project** → בחר את הריפו **GamadLiner**.
+3. Vercel יזהה אוטומטית את הפרויקט כ־Static (אין build). לחץ **Deploy**.
+4. אחרי הפריסה תקבל קישור כמו `https://gamad-liner-xxx.vercel.app`. כל דחיפה ל־`main` תעדכן את האתר אוטומטית.
