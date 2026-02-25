@@ -301,7 +301,7 @@ body {
   display: none;
 }
 
-.input-area.state-completed .btn-next {
+.input-area .btn-next {
   display: inline-flex;
   align-self: center;
 }
