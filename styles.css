@@ -297,10 +297,6 @@ body {
   gap: 0.75rem;
 }
 
-.input-area .btn-next {
-  display: none;
-}
-
 .input-area.state-completed .btn-check {
   display: none;
 }
